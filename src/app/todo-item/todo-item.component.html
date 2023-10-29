@@ -1,6 +1,0 @@
-<div [ngClass]="{'completed': todo.status}">
-    <input type="checkbox" [(ngModel)]="todo.status" (change)="updateStatus(index)">
-    {{ todo.taskName }}
-    <button (click)="deleteTodo(index)">Delete</button>
-  </div>
-  
