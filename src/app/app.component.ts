@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TodoService } from './todo.service';
+import { Todo } from './todo.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo-list-app';
+  newTodo: string = '';
+
+  constructor(private todoService: TodoService) {}
+
+  addTodo() {
+    if (this.newTodo) {
+      this.todoService.addTodo(new Todo(this.newTodo, false));
+      this.newTodo = '';
+    }
+  }
 }
